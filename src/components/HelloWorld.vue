@@ -13,8 +13,8 @@ const error = ref(null);
 
 onMounted(async () => {
   try {
-    users.value = await userService.getUsers();
-    console.log(users.value);
+    const response = await userService.getUsers();
+    users.value = response;
   } catch (error) {
     error.value = "Failed to fetch users";
     console.error(error);
